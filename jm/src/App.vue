@@ -1,17 +1,28 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
+import { db } from './firebase/firebase';
+import { collection, getDocs, doc } from "firebase/firestore";
+import { onMounted, ref } from 'vue';
+
+const users = ref<any[]>([]);
+
+async function fetchUsers() {
+  const querySnapshot = await getDocs(collection(db, "bonus"));
+  users.value = querySnapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
+}
+
+onMounted(() => {
+  fetchUsers();
+});
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div v-for="bonus in users" :key="bonus.id">
+    <p>{{ bonus.id }}: {{ bonus.name }}</p>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
