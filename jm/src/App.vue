@@ -20,9 +20,16 @@ onMounted(() => {
 </script>
 
 <template>
+  <div class="routes">
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/jobs">Jobs</RouterLink>
+  </div>
+
   <div v-for="bonus in users" :key="bonus.id">
     <p>{{ bonus.id }}: {{ bonus.name }}</p>
   </div>
+
+  <RouterView/>
 </template>
 
 <style scoped>
@@ -37,5 +44,10 @@ onMounted(() => {
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+a {
+  width: 100px;
+  height: 20px;
 }
 </style>
