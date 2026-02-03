@@ -8,9 +8,9 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
-            name: 'Home Page',
-            path: '/',
-            component: () => import('./pages/Home.vue')
+            name: 'ForEmp',
+            path: '/empl',
+            component: () => import('./pages/Employer.vue')
         },
         {
             name: 'Jobs',

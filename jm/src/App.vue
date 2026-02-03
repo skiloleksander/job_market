@@ -1,35 +1,32 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
-import { db } from './firebase/firebase';
-import { collection, getDocs, doc } from "firebase/firestore";
-import { onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
-const users = ref<any[]>([]);
-
-async function fetchUsers() {
-  const querySnapshot = await getDocs(collection(db, "bonus"));
-  users.value = querySnapshot.docs.map(doc => ({
-    id: doc.id,
-    ...doc.data()
-  }));
-}
-
-onMounted(() => {
-  fetchUsers();
-});
+  const route = useRoute();
 </script>
 
 <template>
-  <div class="routes">
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/jobs">Jobs</RouterLink>
-  </div>
+  <header class="routes">
+    <RouterLink to="/" class="logo">
+      <img src="#" alt="#">
+      <h3>Logo</h3>
+    </RouterLink>
 
-  <div v-for="bonus in users" :key="bonus.id">
-    <p>{{ bonus.id }}: {{ bonus.name }}</p>
-  </div>
+    <nav>
+      <div class="job-container">
+        <RouterLink to="/jobs">Для роботошукача</RouterLink>
+        <RouterLink to="/empl">Для роботодавця</RouterLink>
+      </div>
+      
+      
 
-  <RouterView/>
+      <RouterLink to="#">Для адміна</RouterLink>
+    </nav>
+    
+  </header>
+      <section class="main-content" v-if="route.path === '/'">
+        Home
+      </section>
+  <RouterView />
 </template>
 
 <style scoped>
