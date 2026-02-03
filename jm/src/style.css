@@ -4,26 +4,45 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--main-color);
+  background-color: var(--second-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+/*код Васі*/
+
+--main-color:rgb(220, 184, 7);
+--second-color:rgb(13, 14, 14);
+--third-color:rgb(70, 134, 78);
+--dop-color:rgb(234,22,5);
+--hover-color:rgb(255,215,0);
+--padding-main:20px;
+--padding-extra:40px;
+--padding-small:10px;
+--margin-main:20px;
+--margin-extra:40px;
+--margin-small:10px;
+--shadow-main:0 4px 12px rgba(0,0,0,0.25);
+--radius-main:10px;
+--radius-extra:20px;
+--radius-small:5px;
+--trans-main:0.3s ease;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color:var(--hover-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color:var(--third-color);
 }
 
 body {
-  margin: 0;
+  margin: var(--margin-main);
   min-width: 320px;
   min-height: 100vh;
 }
@@ -34,18 +53,19 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border-radius: var(--radius-main);
+  border: 1px solid var(--main-color);
+  padding: var(--padding-extra);
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--second-color);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: var(--trans-main);
 }
 button:hover {
-  border-color: #646cff;
+  border-color:var(--hover-color);
+  color:var(--hover-color);
 }
 button:focus,
 button:focus-visible {
@@ -53,23 +73,25 @@ button:focus-visible {
 }
 
 .card {
-  padding: 2em;
+  padding: var(--padding-extra);
+  box-shadow: var(--shadow-main);
+  border-radius: var(--radius-main);
 }
 
 #app {
   max-width: 1280px;
-  padding: 2rem;
+  padding: var(--padding-main);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color:var(--third-color);
+    background-color: var(--second-color)
   }
   a:hover {
-    color: #747bff;
+    color:var(--main-color);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--third-color);
   }
 }
