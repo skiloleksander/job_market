@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
   const route = useRoute();
 </script>
@@ -8,7 +9,10 @@ import Header from './components/Header.vue';
 <template>
       <Header v-if="route.meta.layout !== 'admin'"/>
       <section class="main-content" v-if="route.path === '/'">
-        Home
+        <section class="about"></section>
+        <section class="hot-vacancyes"></section>
+        <section class="other"></section>
+        <Footer />  
       </section>
       <RouterView class="main-view" />
 </template>
