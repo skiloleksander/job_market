@@ -1,32 +1,16 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
+import Header from './components/Header.vue';
 
   const route = useRoute();
 </script>
 
 <template>
-  <header class="routes">
-    <RouterLink to="/" class="logo">
-      <img src="#" alt="#">
-      <h3>Logo</h3>
-    </RouterLink>
-
-    <nav>
-      <div class="job-container">
-        <RouterLink to="/jobs">Для роботошукача</RouterLink>
-        <RouterLink to="/empl">Для роботодавця</RouterLink>
-      </div>
-      
-      
-
-      <RouterLink to="#">Для адміна</RouterLink>
-    </nav>
-    
-  </header>
+      <Header v-if="route.meta.layout !== 'admin'"/>
       <section class="main-content" v-if="route.path === '/'">
         Home
       </section>
-  <RouterView />
+      <RouterView class="main-view" />
 </template>
 
 <style scoped>

@@ -1,0 +1,3 @@
+<template>
+    sended vacancyes
+</template>
