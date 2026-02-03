@@ -17,6 +17,8 @@ import Footer from './components/Footer.vue';
       <RouterView class="main-view" />
 </template>
 
+<!-- MMM -->
+
 <style scoped>
 .logo {
   height: 6em;
