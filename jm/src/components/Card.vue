@@ -1,13 +1,23 @@
 <script setup lang="ts">
+
     defineProps({
         title: String,
         salary_min: Number,
         salary_max: Number,
         category: String,
         region: String,
-        skills: Array,
-        languages: Array,
-        grade: Array
+        skills: {
+            type: Array,
+            default: () => [] 
+        },
+        languages: {
+            type: Array,
+            default: () => [] 
+        },
+        grade: {
+            type: Array,
+            default: () => [] 
+        }
     })
 </script>
 
@@ -35,5 +45,6 @@
                 <li v-for="(g, index) in grade" :key="index">{{ g }}</li>
             </ul>
         </div>
+        <!-- TODO: Fuse Languages and Grade into {{ language }} {{ g }} -->
     </div>
 </template>
