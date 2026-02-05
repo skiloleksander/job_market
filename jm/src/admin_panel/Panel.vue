@@ -4,13 +4,41 @@ import Logo from '../components/Logo.vue';
 </script>
 
 <template>
-  <Logo />
-  <aside>
-    <RouterLink :to="{ name: 'Publish' }">Publish</RouterLink>
-    <RouterLink :to="{ name: 'Edit' }">Edit</RouterLink>
-    <RouterLink :to="{ name: 'Vacancy' }">Vacancies</RouterLink>
-    <RouterLink :to="{ name: 'Sended' }">Sended vacancies</RouterLink>
+  <section class="admin-content">
+    <aside>
+      <Logo />
+      <RouterLink :to="{ name: 'Publish' }"><i class="fa-solid fa-upload"></i>Publish</RouterLink>
+      <RouterLink :to="{ name: 'Edit' }"><i class="fa-solid fa-pen-to-square"></i>Edit</RouterLink>
+      <RouterLink :to="{ name: 'Vacancy' }"><i class="fa-solid fa-list"></i>Vacancies</RouterLink>
+      <RouterLink :to="{ name: 'Sended' }"><i class="fa-solid fa-inbox"></i>Sended vacancies</RouterLink>
   </aside>
 
-  <RouterView />
+    <RouterView />
+  </section>
+  
 </template>
+
+<style scoped>
+  .admin-content {
+    display: flex;
+  }
+  aside {
+    position: sticky;
+    top: 0;
+    left: 0;
+    border: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 100vh;
+
+    margin-right: 50px;
+
+    a {
+      padding: 10px;
+    }
+    i {
+      padding-right: 10px;
+    }
+  }
+</style>
