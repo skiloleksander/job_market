@@ -34,6 +34,7 @@ const fetchCards = async () => {
 onMounted(() => {
   fetchCards();
 });
+
 </script>
 
 <template>
