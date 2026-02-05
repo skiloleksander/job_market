@@ -11,10 +11,11 @@ import Footer from './components/Footer.vue';
       <section class="main-content" v-if="route.path === '/'">
         <section class="about"></section>
         <section class="hot-vacancyes"></section>
-        <section class="other"></section>
-        <Footer />  
+        <section class="other"></section> 
       </section>
+      
       <RouterView class="main-view" />
+      <Footer />  
 </template>
 
 <!-- MMM -->

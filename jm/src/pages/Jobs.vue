@@ -1,5 +1,6 @@
 <script setup>
 import Card from '../components/Card.vue';
+import Filters from '../components/Filters.vue';
 import { db } from '../firebase/firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { ref, onMounted } from 'vue';
@@ -39,6 +40,10 @@ onMounted(() => {
 
 <template>
   jobs page
+
+  <Filters/>
+
+
   <div v-for="card in cards" :key="card.id">
     <Card
       :title="card.title"
