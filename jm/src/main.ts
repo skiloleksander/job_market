@@ -44,6 +44,11 @@ const router = createRouter({
           component: () => import('./admin_panel/Vacancy.vue')
         }
       ]
+    },
+    {
+      path: '/privacy-policy',
+      name: 'Privacy Policy',
+      component: () => import('./pages/Privacy.vue')
     }
   ]
 })

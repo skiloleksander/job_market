@@ -34,18 +34,13 @@
                 <li v-for="(skill, index) in skills" :key="index">{{ skill }}</li>
             </ul>
         </div>
-        <div v-if="languages && languages.length">
+        <div v-if="languages && languages.length && grade && grade.length">
             <h3>Languages:</h3>
             <ul>
-                <li v-for="(language, index) in languages" :key="index">{{ language }}</li>
+                <li v-for="(language, index) in languages" :key="index">{{ language }} - {{ grade[index] }}</li>
             </ul>
         </div>
-        <div v-if="grade && grade.length">
-            <h3>Grade:</h3>
-            <ul>
-                <li v-for="(g, index) in grade" :key="index">{{ g }}</li>
-            </ul>
+                
         </div>
-        <!-- TODO: Fuse Languages and Grade into {{ language }} {{ g }} -->
-    </div>
+
 </template>
