@@ -40,7 +40,15 @@
                 <li v-for="(language, index) in languages" :key="index">{{ language }} - {{ grade[index] }}</li>
             </ul>
         </div>
-                
-        </div>
+        <button>See vacancy</button>    
+    </div>
 
 </template>
+
+<style scoped>
+    button {
+        width: 120px;
+        height: 30px;
+        
+    }
+</style>

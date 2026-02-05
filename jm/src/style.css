@@ -33,6 +33,7 @@
 }
 
 a {
+  width: 200px;
   font-weight: 500;
   color:var(--hover-color);
   text-decoration: inherit;
@@ -55,7 +56,6 @@ h1 {
 button {
   border-radius: var(--radius-main);
   border: 1px solid var(--main-color);
-  padding: var(--padding-extra);
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
