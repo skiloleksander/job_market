@@ -1,10 +1,11 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { db } from '../firebase/firebase'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 const types = ref([])
 const categories = ref([])
+const regions = ref([])
 
 const filters = ref({
   salary_min: 0,
@@ -30,9 +31,18 @@ const getTypes = async () => {
   }))
 }
 
+const getRegions = async () => {
+  const snap = await getDocs(collection(db, 'region'))
+  regions.value = snap.docs.map(doc => ({
+    id: doc.id,
+    name: doc.data().name
+  }))
+}
+
 onMounted(() => {
   getTypes()
   getCategories()
+  getRegions()
 })
 
 watch(() => filters.value.salary_min, (newMin) => {
@@ -46,6 +56,13 @@ watch(() => filters.value.salary_max, (newMax) => {
     filters.value.salary_min = newMax
   }
 })
+
+const emit = defineEmits(['apply'])
+
+watch(filters, () => {
+  emit('apply', { ...filters.value })
+}, { deep: true })
+
 </script>
 
 <template>
@@ -54,7 +71,12 @@ watch(() => filters.value.salary_max, (newMax) => {
 
     <label>
       Category:
-      <input placeholder="Enter your category" type="text" v-model="filters.category" />
+      <select v-model="filters.category">
+        <option value="">All categories</option>
+        <option v-for="category in categories" :key="category.id" :value="category.name">
+          {{ category.name }}
+        </option>
+      </select>
     </label>
 
     <label>
@@ -83,18 +105,18 @@ watch(() => filters.value.salary_max, (newMax) => {
       Employment Type:
       <select v-model="filters.type">
         <option value="">All types</option>
-        <option v-for="type in types" :key="type.id" :value="type.id">
+        <option v-for="type in types" :key="type.id" :value="type.name">
           {{ type.name }}
         </option>
       </select>
     </label>
 
     <label>
-      Category:
-      <select v-model="filters.category">
-        <option value="">All categories</option>
-        <option v-for="category in categories" :key="category.id" :value="category.id">
-          {{ category.name }}
+      Region:
+      <select v-model="filters.region">
+        <option value="">All regions</option>
+        <option v-for="region in regions" :key="region.id" :value="region.name">
+          {{ region.name }}
         </option>
       </select>
     </label>
