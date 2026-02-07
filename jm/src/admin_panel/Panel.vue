@@ -7,6 +7,7 @@ import Logo from '../components/Logo.vue';
   <section class="admin-content">
     <aside>
       <Logo />
+      <RouterLink :to="{name: 'Admin'}"><i class="fa-solid fa-chalkboard-user"></i>Instructions</RouterLink>
       <RouterLink :to="{ name: 'Publish' }"><i class="fa-solid fa-upload"></i>Publish</RouterLink>
       <RouterLink :to="{ name: 'Edit' }"><i class="fa-solid fa-pen-to-square"></i>Edit</RouterLink>
       <RouterLink :to="{ name: 'Vacancy' }"><i class="fa-solid fa-list"></i>Vacancies</RouterLink>

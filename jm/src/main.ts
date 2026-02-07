@@ -8,6 +8,11 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      name: 'Home',
+      path: '/',
+      component: () => import('./pages/Home.vue')
+    },
+    {
       name: 'ForEmp',
       path: '/empl',
       component: () => import('./pages/Employer.vue')
@@ -20,6 +25,7 @@ const router = createRouter({
 
     {
       path: '/admin-panel',
+      name: 'Admin',
       meta: {layout : 'admin'},
       component: () => import('./admin_panel/Panel.vue'),
       children: [

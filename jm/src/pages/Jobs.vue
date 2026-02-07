@@ -76,8 +76,8 @@ onMounted(() => {
 
   <Filters @apply="fetchCards" />
 
-  <div v-for="card in cards" :key="card.id">
-    <Card
+  <div class="jobs-container">
+    <Card v-for="card in cards" :key="card.id"
       :title="card.title"
       :salary_min="card.salary_min"
       :salary_max="card.salary_max"
@@ -89,3 +89,11 @@ onMounted(() => {
     />
   </div>
 </template>
+
+<style>
+  .jobs-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+  }
+</style>
