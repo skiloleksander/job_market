@@ -24,31 +24,63 @@
 
 <template>
     <div class="card">
-        <h2>{{ title }}</h2>
-        <p>Salary: {{ salary_min }} - {{ salary_max }}</p>
-        <p>Category: {{ category }}</p>
-        <p>Region: {{ region }}</p>
-        <div v-if="skills && skills.length">
-            <h3>Skills:</h3>
-            <ul>
-                <li v-for="(skill, index) in skills" :key="index">{{ skill }}</li>
-            </ul>
+        <section>
+            <div class="card-top">
+            <h2>{{ title }}</h2>
+            <p>Salary: {{ salary_min }} - {{ salary_max }}</p>
+            <p>Category: {{ category }}</p>
+            <p>Region: {{ region }}</p>
         </div>
-        <div v-if="languages && languages.length && grade && grade.length">
-            <h3>Languages:</h3>
-            <ul>
-                <li v-for="(language, index) in languages" :key="index">{{ language }} - {{ grade[index] }}</li>
-            </ul>
+        
+        <div class="card-important">
+            <div v-if="skills && skills.length">
+                <h3>Skills:</h3>
+                <ul>
+                    <li v-for="(skill, index) in skills" :key="index">{{ skill }}</li>
+                </ul>
+            </div>
+
+            <div v-if="languages && languages.length && grade && grade.length">
+                <h3>Languages:</h3>
+                <ul>
+                    <li v-for="(language, index) in languages" :key="index">{{ language }} - {{ grade[index] }}</li>
+                </ul>
+            </div>
         </div>
-        <button>See vacancy</button>    
+
+        </section>
+        
+        <div class="buttons">
+            <button>See vacancy</button> 
+            <slot>
+                
+            </slot>
+        </div>
     </div>
 
 </template>
 
 <style scoped>
+    .card {
+        border: 1px solid #fff;
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    section {
+        flex: 1;
+    }
+
     button {
-        width: 120px;
+        min-width: 120px;
         height: 30px;
-        
+        margin: 10px;
+    }
+
+    .buttons {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
     }
 </style>

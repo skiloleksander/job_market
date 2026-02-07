@@ -47,10 +47,14 @@ onMounted(() => {
 </script>
 
 <template>
-  published vacancy
+  
+  
 
-  <div >
-    <Card v-for="card in cards" :key="card.id"
+  <div class="admin-vacancyes_container">
+    <h2>All vacancies:</h2>
+
+    <div class="admin-cards">
+      <Card v-for="card in cards" :key="card.id"
       :title="card.title"
       :salary_min="card.salary_min"
       :salary_max="card.salary_max"
@@ -59,6 +63,26 @@ onMounted(() => {
       :languages="card.languages"
       :skills="card.skills"
       :grade="card.grade"
-    />
+    >
+      <button class="vacancy-btn">Edit</button>
+      <button class="vacancy-btn">Disactivate/Activate</button>   
+    </Card>
+    </div>
+
+    
   </div>
 </template>
+
+<style>
+  .admin-cards {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 50px;
+  }
+
+  .vacancy-btn {
+    min-width: 120px;
+    height: 30px;
+    margin: 10px;
+  }
+</style>
