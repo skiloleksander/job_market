@@ -14,7 +14,7 @@ import Footer from './components/Footer.vue';
         <section class="other"></section> 
       </section>
       
-      <RouterView class="main-view" />
+      <RouterView/>
       <Footer />  
 </template>
 

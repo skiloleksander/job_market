@@ -73,7 +73,7 @@ button:focus-visible {
 }
 
 .card {
-  padding: var(--padding-extra);
+  padding: var(--padding-small);
   box-shadow: var(--shadow-main);
   border-radius: var(--radius-main);
 }
