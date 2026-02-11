@@ -30,7 +30,7 @@ import Logo from '../components/Logo.vue';
     border: 1px solid #fff;
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 250px;
     height: 100vh;
 
     margin-right: 50px;
