@@ -22,7 +22,8 @@ const mapCards = (doc) => {
     region: data.region,
     skills: skillsStr ? skillsStr.split(',').map(s => s.trim()) : [],
     languages: languagesStr ? languagesStr.split(',').map(l => l.trim()) : [],
-    grade: gradesStr ? gradesStr.split(',').map(g => g.trim()) : []
+    grade: gradesStr ? gradesStr.split(',').map(g => g.trim()) : [],
+    slug: data.slug
   }
 }
 
@@ -86,6 +87,7 @@ onMounted(() => {
       :languages="card.languages"
       :skills="card.skills"
       :grade="card.grade"
+      :slug="card.slug"
     />
   </div>
 </template>
@@ -94,6 +96,6 @@ onMounted(() => {
   .jobs-container {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 10px;
+    gap: 30px;
   }
 </style>

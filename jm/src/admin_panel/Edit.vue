@@ -1,7 +1,11 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { db } from '../firebase/firebase'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, addDoc, updateDoc } from 'firebase/firestore'
+import { slugify } from '../firebase/firebase'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const types = ref([])
 const categories = ref([])
@@ -34,6 +38,61 @@ const propsToPush = ref({
     { bonus: '' }
   ]
 })
+
+
+
+const publishJob = async () => {
+  try {
+    const slug = slugify(propsToPush.value.title)
+
+    const skillsString = propsToPush.value.skills
+      .map(item => item.skill)
+      .join(',')
+
+    const languagesString = propsToPush.value.languages
+      .map(item => item.language)
+      .join(',')
+
+    const gradesString = propsToPush.value.languages
+      .map(item => item.grade)
+      .join(',')
+
+    const bonusesString = propsToPush.value.bonuses
+      .map(item => item.bonus)
+      .join(',')
+      
+    const docRef = await addDoc(collection(db, "vacancy"), {
+      title: propsToPush.value.title,
+      salary_min: propsToPush.value.salary_min,
+      salary_max: propsToPush.value.salary_max,
+      category: propsToPush.value.category,
+      type: propsToPush.value.type,
+      region: propsToPush.value.region,
+      skills: skillsString,
+      languages: languagesString,
+      grades: gradesString,
+      bonuses: bonusesString,
+      description: propsToPush.value.description,
+      email: propsToPush.value.email,
+      phone: propsToPush.value.phone,
+      status: 'active'
+    })
+
+    const finalSlug = `${slug}-${docRef.id}`
+
+    await updateDoc(docRef, {
+      slug: finalSlug
+    })
+
+    router.push({
+      name: 'VacancyFull',
+      params: { slug: finalSlug }
+    })
+
+  } catch (err) {
+    console.error("Publish error:", err)
+  }
+}
 
 const addLanguage = () => {
   propsToPush.value.languages.push({
@@ -263,7 +322,17 @@ onMounted(() => {
         </button>
       </div>
 
-      <button class="publish-btn">
+
+      <div class="block-section bottom">
+          <textarea placeholder="Description" v-model="propsToPush.description"></textarea>
+          <div class="contacts">
+            <input placeholder="Email" type="text" v-model="propsToPush.email"/>
+            <input placeholder="Phone" type="text" v-model="propsToPush.phone"/>
+          </div>
+          
+      </div>
+
+      <button class="publish-btn" @click="publishJob">
         Publish
       </button>
 
@@ -313,10 +382,30 @@ input, select {
   font-size: 14px;
 }
 
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f6f6f6;
+  font-size: 16px;
+  resize: none;
+}
+
 input:focus,
 select:focus {
   outline: none;
   border-color: #3b82f6;
+}
+
+.bottom {
+  display: flex;
+}
+
+.contacts input {
+  margin: var(--margin-small);
 }
 
 button {
@@ -327,7 +416,7 @@ button {
 }
 
 .add-btn {
-  background: #e0f2fe;
+  background: #38b548;
 }
 
 .publish-btn {
@@ -336,6 +425,12 @@ button {
   background: #3b82f6;
   color: white;
   margin-top: 20px;
+}
+
+button {
+  padding: 10px;
+  background: #3b82f6;
+  color: white;
 }
 
 @media (max-width: 768px) {

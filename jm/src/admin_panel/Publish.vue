@@ -1,3 +1,0 @@
-<template>
-    publish page
-</template>

@@ -22,6 +22,11 @@ const router = createRouter({
       path: '/jobs',
       component: () => import('./pages/Jobs.vue')
     },
+    {
+      path: '/vacancy/:slug',
+      name: 'VacancyFull',
+      component: () => import('./pages/VacancyView.vue')
+    },
 
     {
       path: '/admin-panel',
