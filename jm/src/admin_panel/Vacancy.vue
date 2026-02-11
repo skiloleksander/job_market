@@ -109,6 +109,14 @@ onMounted(() => {
   input[type = 'text']{
     width: 200px;
     margin: var(--margin-main);
+    padding: var(--padding-small);
+    border-radius: var(--radius-main);
+    border: 1px solid #00000058;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #3b82f6;
   }
 
   .check-status {

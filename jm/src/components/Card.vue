@@ -17,7 +17,8 @@
         grade: {
             type: Array,
             default: () => [] 
-        }
+        },
+        slug: String
     })
     
 </script>
@@ -51,7 +52,7 @@
         </section>
         
         <div class="buttons">
-            <button>See vacancy</button> 
+            <router-link :to="`/vacancy/${slug}`"><button>See vacancy</button></router-link>
             <slot>
                 
             </slot>
@@ -62,6 +63,7 @@
 
 <style scoped>
     .card {
+        background-color: #fffffffc;
         border: 1px solid #fff;
         display: flex;
         flex-direction: column;
@@ -72,7 +74,7 @@
         flex: 1;
     }
 
-    button {
+    a {
         min-width: 120px;
         height: 30px;
         margin: 10px;
