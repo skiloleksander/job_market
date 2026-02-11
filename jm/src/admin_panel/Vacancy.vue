@@ -47,11 +47,22 @@ onMounted(() => {
 </script>
 
 <template>
-  
-  
-
   <div class="admin-vacancyes_container">
-    <h2>All vacancies:</h2>
+    <section class="top">
+      <h2>All vacancies:</h2>
+      <input placeholder="Search by name" type="text" />
+      <div class="check-status">
+        <input type="checkbox" />
+        <p>Show all disactivated vacancyes</p>
+      </div>
+
+      <div class="check-status">
+        <input type="checkbox" />
+        <p>Show all activated vacancyes</p>
+      </div>
+    </section>
+    
+    
 
     <div class="admin-cards">
       <Card v-for="card in cards" :key="card.id"
@@ -76,13 +87,32 @@ onMounted(() => {
 <style>
   .admin-cards {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 50px;
+  }
+
+  .top {
+    background: #fff;
+    border-radius: var(--radius-main);
+    padding: var(--padding-main);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
   }
 
   .vacancy-btn {
     min-width: 120px;
     height: 30px;
     margin: 10px;
+  }
+
+  input[type = 'text']{
+    width: 200px;
+    margin: var(--margin-main);
+  }
+
+  .check-status {
+    display: flex;
+    padding: var(--padding-small);
   }
 </style>
