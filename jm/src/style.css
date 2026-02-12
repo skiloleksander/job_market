@@ -78,6 +78,10 @@ button:focus-visible {
   border-radius: var(--radius-main);
 }
 
+.router-link-exact-active {
+    color: var(--hover-color)
+  }
+
 #app {
   padding: var(--padding-main);
 }

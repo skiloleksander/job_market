@@ -20,3 +20,28 @@ import Logo from './Logo.vue';
     
   </header>
 </template>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    padding: var(--padding-main);
+    background: #fff;
+    border-radius: var(--radius-main);
+    gap: 20px;
+  }
+
+  nav {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+  }
+
+  .job-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+</style>
