@@ -52,7 +52,7 @@
         </section>
         
         <div class="buttons">
-            <router-link :to="`/vacancy/${slug}`"><button>See vacancy</button></router-link>
+            <router-link :to="`/vacancy/${slug}`"><button class="main-btn">See vacancy</button></router-link>
             <slot>
                 
             </slot>
@@ -84,5 +84,12 @@
         margin-top: auto;
         display: flex;
         flex-direction: column;
+    }
+    .buttons a {
+        width: 100%;
+    }
+    .main-btn {
+        width: 94%;
+        height: 30px;
     }
 </style>

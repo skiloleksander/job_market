@@ -64,6 +64,10 @@ row-gap:15px;
 color:var(--main-color);
 text-decoration:none;
 transition:var(--trans-main);
+
+&:hover {
+    transform: scale(1.05);
+}
 }
 .pages a:hover{
 color:var(--hover-color);
