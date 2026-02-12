@@ -40,9 +40,9 @@ const router = createRouter({
           component: () => import('./admin_panel/Edit.vue')
         },
         {
-          path: 'publish',
-          name: 'Publish',
-          component: () => import('./admin_panel/Publish.vue')
+          path: 'instructions',
+          name: 'Instructions',
+          component: () => import('./admin_panel/Instructions.vue')
         },
         {
           path: 'sended',

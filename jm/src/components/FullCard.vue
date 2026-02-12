@@ -24,7 +24,7 @@ onMounted(async () => {
     <p>Salary: {{ vacancy.salary_min }} - {{ vacancy.salary_max }}</p>
     <p>Skills: {{ vacancy.skills }}</p>
     <p>Languages: {{ vacancy.languages }}</p>
-    <p>Grades: {{ vacancy.grade }}</p>
+    <p>Grades: {{ vacancy.grades }}</p>
     <p>Bonuses: {{ vacancy.bonuses }}</p>
   </div>
   <div v-else>Loading...</div>

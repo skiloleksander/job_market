@@ -30,12 +30,14 @@
 --radius-extra:20px;
 --radius-small:5px;
 --trans-main:0.3s ease;
+
+--admin-color-main: #3d6e93e1;
 }
 
 a {
   width: 200px;
   font-weight: 500;
-  color:var(--hover-color);
+  color:var(--admin-color-main);
   text-decoration: inherit;
 }
 a:hover {
@@ -79,7 +81,7 @@ button:focus-visible {
 }
 
 .router-link-exact-active {
-    color: var(--hover-color)
+    color: var(--third-color)
   }
 
 #app {

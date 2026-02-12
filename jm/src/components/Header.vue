@@ -29,13 +29,17 @@ import Logo from './Logo.vue';
     background: #fff;
     border-radius: var(--radius-main);
     gap: 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 60px;
   }
 
   nav {
     display: flex;
     flex: 1;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 80px;
   }
 
