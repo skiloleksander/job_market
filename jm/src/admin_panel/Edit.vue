@@ -191,18 +191,18 @@ onMounted(() => {
     <div class="form-wrapper">
 
       <div class="grid-section">
-        <input placeholder="Title" v-model="propsToPush.title" />
+        <input placeholder="Заголовок" v-model="propsToPush.title" />
 
         <input type="number"
-               placeholder="Minimum salary"
+               placeholder="Мінімальна зарплата"
                v-model.number="propsToPush.salary_min" />
 
         <input type="number"
-               placeholder="Maximum salary"
+               placeholder="Максимальна зарплата"
                v-model.number="propsToPush.salary_max" />
 
         <select v-model="propsToPush.category">
-          <option value="">Select category</option>
+          <option value="">Оберіть категорію</option>
           <option v-for="category in categories"
                   :key="category.id"
                   :value="category.name">
@@ -211,7 +211,7 @@ onMounted(() => {
         </select>
 
         <select v-model="propsToPush.type">
-          <option value="">Select type</option>
+          <option value="">Оберіть тип</option>
           <option v-for="type in types"
                   :key="type.id"
                   :value="type.name">
@@ -220,7 +220,7 @@ onMounted(() => {
         </select>
 
         <select v-model="propsToPush.region">
-          <option value="">Select region</option>
+          <option value="">Оберіть регіон</option>
           <option v-for="region in regions"
                   :key="region.id"
                   :value="region.name">
@@ -230,13 +230,13 @@ onMounted(() => {
       </div>
 
       <div class="block-section">
-        <h3>Skills</h3>
+        <h3>Навички</h3>
 
         <div v-for="(item, index) in propsToPush.skills"
              :key="index"
              class="row">
           <select v-model="item.skill">
-            <option value="">Select skill</option>
+            <option value="">Оберіть навичку</option>
             <option v-for="skill in skills"
                     :key="skill.id"
                     :value="skill.name">
@@ -246,25 +246,25 @@ onMounted(() => {
 
           <button type="button"
                   @click="removeItem('skills', index)">
-            Remove
+            Видалити
           </button>
         </div>
 
         <button type="button"
                 class="add-btn"
                 @click="addSkill">
-          Add Skill
+          Додати навички
         </button>
       </div>
 
       <div class="block-section">
-        <h3>Languages</h3>
+        <h3>Мови</h3>
 
         <div v-for="(item, index) in propsToPush.languages"
              :key="index"
              class="row">
           <select v-model="item.language">
-            <option value="">Select language</option>
+            <option value="">Оберіть мову</option>
             <option v-for="lang in languagesList"
                     :key="lang.id"
                     :value="lang.name">
@@ -273,7 +273,7 @@ onMounted(() => {
           </select>
 
           <select v-model="item.grade">
-            <option value="">Select grade</option>
+            <option value="">Оберіть рівень</option>
             <option v-for="grade in grades"
                     :key="grade.id"
                     :value="grade.name">
@@ -283,25 +283,25 @@ onMounted(() => {
 
           <button type="button"
                   @click="removeItem('languages', index)">
-            Remove
+            Видалити
           </button>
         </div>
 
         <button type="button"
                 class="add-btn"
                 @click="addLanguage">
-          Add language
+          Додати мову
         </button>
       </div>
 
       <div class="block-section">
-        <h3>Bonuses</h3>
+        <h3>Бонуси</h3>
 
         <div v-for="(item, index) in propsToPush.bonuses"
              :key="index"
              class="row">
           <select v-model="item.bonus">
-            <option value="">Select bonus</option>
+            <option value="">Оберіть бонус</option>
             <option v-for="bonus in bonuses"
                     :key="bonus.id"
                     :value="bonus.name">
@@ -311,29 +311,29 @@ onMounted(() => {
 
           <button type="button"
                   @click="removeItem('bonuses', index)">
-            Remove
+            Видалити
           </button>
         </div>
 
         <button type="button"
                 class="add-btn"
                 @click="addBonus">
-          Add Bonus
+          Додати бонус
         </button>
       </div>
 
 
       <div class="block-section bottom">
-          <textarea placeholder="Description" v-model="propsToPush.description"></textarea>
+          <textarea placeholder="Опис" v-model="propsToPush.description"></textarea>
           <div class="contacts">
-            <input placeholder="Email" type="text" v-model="propsToPush.email"/>
-            <input placeholder="Phone" type="text" v-model="propsToPush.phone"/>
+            <input placeholder="Електронна пошта" type="text" v-model="propsToPush.email"/>
+            <input placeholder="Телефон" type="text" v-model="propsToPush.phone"/>
           </div>
           
       </div>
 
       <button class="publish-btn" @click="publishJob">
-        Publish
+        Опублікувати
       </button>
 
     </div>

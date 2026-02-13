@@ -73,9 +73,7 @@ onMounted(() => {
 </script>
 
 <template>
-  jobs page
-
-  <Filters @apply="fetchCards" />
+<Filters @apply="fetchCards" />
 
   <div class="jobs-container">
     <Card v-for="card in cards" :key="card.id"

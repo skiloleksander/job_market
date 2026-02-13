@@ -87,16 +87,16 @@ onMounted(() => {
 <template>
   <div class="admin-vacancyes_container">
     <section class="top">
-      <h2>All vacancies:</h2>
-      <input placeholder="Search by name" type="text" v-model="search"/>
+      <h2>Всі вакансії:</h2>
+      <input placeholder="Пошук за назвою" type="text" v-model="search"/>
       <div class="check-status">
         <input type="checkbox" v-model="Inactive"/>
-        <p>Show all disactivated vacancyes</p>
+        <p>Показати всі неактивні вакансії</p>
       </div>
 
       <div class="check-status">
         <input type="checkbox" v-model="Active"/>
-        <p>Show all activated vacancyes</p>
+        <p>Показати всі активні вакансії</p>
       </div>
     </section>
     
@@ -113,11 +113,11 @@ onMounted(() => {
       :skills="card.skills"
       :grade="card.grade"
     >
-      <button class="vacancy-btn">Edit</button>
+      <button class="vacancy-btn">Редагувати</button>
       <button @click="changeState(card)">
-        {{ card.status === 'active' ? 'Disactivate' : 'Activate' }}
+        {{ card.status === 'active' ? 'Деактивувати' : 'Активувати' }}
       </button>
-      <button class="vacancy-btn">Delete</button>   
+      <button class="vacancy-btn">Видалити</button>   
     </Card>
     </div>
 
