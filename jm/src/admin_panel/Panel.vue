@@ -12,7 +12,6 @@ import Logo from '../components/Logo.vue';
       <RouterLink :to="{ name: 'Vacancy' }"><i class="fa-solid fa-list"></i>Vacancies</RouterLink>
       <RouterLink :to="{ name: 'Sended' }"><i class="fa-solid fa-inbox"></i>Sended vacancies</RouterLink>
   </aside>
-
     <RouterView />
   </section>
   
