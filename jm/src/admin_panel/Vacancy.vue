@@ -1,10 +1,14 @@
 <script setup>
 import Card from '../components/Card.vue';
 import { db } from '../firebase/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { ref, onMounted } from 'vue';
+import { collection, getDocs, query, where, updateDoc,doc } from 'firebase/firestore';
+import { ref, onMounted,computed } from 'vue';
 
 const cards = ref([]);
+const search = ref('')
+
+const Active = ref(true)
+const Inactive = ref(true)
 
 const mapCards = (doc) => {
   const data = doc.data();
@@ -19,6 +23,7 @@ const mapCards = (doc) => {
     salary_max: data.salary_max,
     category: data.category,
     region: data.region,
+    status: data.status || 'active',
     skills: skillsStr ? skillsStr.split(',').map(s => s.trim()) : [],
     languages: languagesStr ? languagesStr.split(',').map(l => l.trim()) : [],
     grade: gradesStr ? gradesStr.split(',').map(g => g.trim()) : []
@@ -40,6 +45,39 @@ const fetchCards = async (filters = {}) => {
   }
 }
 
+const filtredVacancies = computed(() => {
+  return cards.value.filter(card => {
+    if(card.status === 'active' && !Active.value) return false
+    if(card.status === 'inactive' && !Inactive.value) return false
+
+    return true
+  }).filter(card => {
+    return card.title.toLowerCase().includes(search.value.toLowerCase())
+  })
+})
+
+const toggleStatus = (status) => {
+  return status === 'active' ? 'inactive' : 'active'
+}
+
+const changeState = async (card) => {
+  try {
+    const newStatus = toggleStatus(card.status)
+
+    const docRef = doc(db, 'vacancy', card.id)
+
+    await updateDoc(docRef, {
+      status: newStatus
+    })
+
+    card.status = newStatus 
+    console.log("State changed successfully")
+
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 onMounted(() => {
   fetchCards();
 });
@@ -50,14 +88,14 @@ onMounted(() => {
   <div class="admin-vacancyes_container">
     <section class="top">
       <h2>All vacancies:</h2>
-      <input placeholder="Search by name" type="text" />
+      <input placeholder="Search by name" type="text" v-model="search"/>
       <div class="check-status">
-        <input type="checkbox" />
+        <input type="checkbox" v-model="Inactive"/>
         <p>Show all disactivated vacancyes</p>
       </div>
 
       <div class="check-status">
-        <input type="checkbox" />
+        <input type="checkbox" v-model="Active"/>
         <p>Show all activated vacancyes</p>
       </div>
     </section>
@@ -65,7 +103,7 @@ onMounted(() => {
     
 
     <div class="admin-cards">
-      <Card v-for="card in cards" :key="card.id"
+      <Card v-for="card in filtredVacancies" :key="card.id"
       :title="card.title"
       :salary_min="card.salary_min"
       :salary_max="card.salary_max"
@@ -76,7 +114,10 @@ onMounted(() => {
       :grade="card.grade"
     >
       <button class="vacancy-btn">Edit</button>
-      <button class="vacancy-btn">Disactivate/Activate</button>   
+      <button @click="changeState(card)">
+        {{ card.status === 'active' ? 'Disactivate' : 'Activate' }}
+      </button>
+      <button class="vacancy-btn">Delete</button>   
     </Card>
     </div>
 

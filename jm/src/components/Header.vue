@@ -15,7 +15,7 @@ import Logo from './Logo.vue';
       
       
 
-      <RouterLink to="/admin-panel">Для адміна</RouterLink>
+      <RouterLink to="/admin-panel/instructions">Для адміна</RouterLink>
     </nav>
     
   </header>
