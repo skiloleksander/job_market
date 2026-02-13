@@ -67,12 +67,12 @@ watch(filters, () => {
 
 <template>
   <form class="filters">
-    <h3>Find our vacancy faster with filters</h3>
+    <h3>Шукайте вакансію швидше за допомогою фільтрів</h3>
 
     <label>
-      Category:
+      Категорія:
       <select v-model="filters.category">
-        <option value="">All categories</option>
+        <option value="">Всі категорії</option>
         <option v-for="category in categories" :key="category.id" :value="category.name">
           {{ category.name }}
         </option>
@@ -80,7 +80,7 @@ watch(filters, () => {
     </label>
 
     <label>
-      Salary Min: {{ filters.salary_min }}
+      Мінімальна зарплата: {{ filters.salary_min }}
       <input
         type="range"
         min="0"
@@ -91,7 +91,7 @@ watch(filters, () => {
     </label>
 
     <label>
-      Salary Max: {{ filters.salary_max }}
+      Максимальна зарплата: {{ filters.salary_max }}
       <input
         type="range"
         min="0"
@@ -102,9 +102,9 @@ watch(filters, () => {
     </label>
 
     <label>
-      Employment Type:
+      Тип зайнятості:
       <select v-model="filters.type">
-        <option value="">All types</option>
+        <option value="">Всі типи</option>
         <option v-for="type in types" :key="type.id" :value="type.name">
           {{ type.name }}
         </option>
@@ -112,9 +112,9 @@ watch(filters, () => {
     </label>
 
     <label>
-      Region:
+      Регіон:
       <select v-model="filters.region">
-        <option value="">All regions</option>
+        <option value="">Всі регіони</option>
         <option v-for="region in regions" :key="region.id" :value="region.name">
           {{ region.name }}
         </option>

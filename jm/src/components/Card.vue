@@ -28,21 +28,21 @@
         <section>
             <div class="card-top">
             <h2>{{ title }}</h2>
-            <p>Salary: {{ salary_min }} - {{ salary_max }}</p>
-            <p>Category: {{ category }}</p>
-            <p>Region: {{ region }}</p>
+            <p>Заробітна плата: {{ salary_min }} - {{ salary_max }}</p>
+            <p>Категорія: {{ category }}</p>
+            <p>Регіон: {{ region }}</p>
         </div>
         
         <div class="card-important">
             <div v-if="skills && skills.length">
-                <h3>Skills:</h3>
+                <h3>Навички:</h3>
                 <ul>
                     <li v-for="(skill, index) in skills" :key="index">{{ skill }}</li>
                 </ul>
             </div>
 
             <div v-if="languages && languages.length && grade && grade.length">
-                <h3>Languages:</h3>
+                <h3>Мови:</h3>
                 <ul>
                     <li v-for="(language, index) in languages" :key="index">{{ language }} - {{ grade[index] }}</li>
                 </ul>
@@ -52,7 +52,7 @@
         </section>
         
         <div class="buttons">
-            <router-link :to="`/vacancy/${slug}`"><button class="main-btn">See vacancy</button></router-link>
+            <router-link :to="`/vacancy/${slug}`"><button class="main-btn">Детальніше</button></router-link>
             <slot>
                 
             </slot>

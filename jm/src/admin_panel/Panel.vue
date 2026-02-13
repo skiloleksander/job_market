@@ -7,10 +7,10 @@ import Logo from '../components/Logo.vue';
   <section class="admin-content">
     <aside>
       <Logo />
-      <RouterLink :to="{name: 'Instructions'}"><i class="fa-solid fa-chalkboard-user"></i>Instructions</RouterLink>
-      <RouterLink :to="{ name: 'Edit' }"><i class="fa-solid fa-pen-to-square"></i>Edit and Publish</RouterLink>
-      <RouterLink :to="{ name: 'Vacancy' }"><i class="fa-solid fa-list"></i>Vacancies</RouterLink>
-      <RouterLink :to="{ name: 'Sended' }"><i class="fa-solid fa-inbox"></i>Sended vacancies</RouterLink>
+      <RouterLink :to="{name: 'Instructions'}"><i class="fa-solid fa-chalkboard-user"></i>Інструкції</RouterLink>
+      <RouterLink :to="{ name: 'Edit' }"><i class="fa-solid fa-pen-to-square"></i>Редагувати та Публікувати</RouterLink>
+      <RouterLink :to="{ name: 'Vacancy' }"><i class="fa-solid fa-list"></i>Вакансії</RouterLink>
+      <RouterLink :to="{ name: 'Sended' }"><i class="fa-solid fa-inbox"></i>Надіслані вакансії</RouterLink>
   </aside>
     <RouterView />
   </section>

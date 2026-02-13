@@ -1,26 +1,26 @@
 <template>
     <section class="instructions">
         <section class="admin-instruction-block">
-            <h3>How to Edit and Publish</h3>
+            <h3>Як Редагувати та Публікувати</h3> 
             <ol>
-                <li>Select tab "Edit and Publish"</li>
-                <li>Enter all information about vacancy</li>
-                <li>Click button "Publish"</li>
+                <li>Оберіть вкладку "Редагувати та Публікувати"</li>
+                <li>Введіть всю інформації про вакансію</li>
+                <li>Натисніть на кнопку "Опублікувати"</li>
             </ol>
-            <p>All information about that vacancy will store in database,and after your publish that vacancy that vacancy will be active</p>
+            <p>Вся інформація про вакансію буде збережена в базі даних, і після опублікації вона буде активованою</p>
         </section>
         <section class="admin-instruction-block">
-            <h3>About tab with all vacancyes</h3>
-            <p>In tab "Vacancies" you will see all vacancies with "active" and "disactive" state</p>
-            <p>You can easely change state of vacancy by clicking button "Activate/Disactivate" at the bottom of vacancy</p>
-            <p>Also you can delete vacancy by clicking button "Delete"</p>
-            <p>You can filtring vacancies by clicking button at the top and search vacancies by their names</p>
+            <h3>Про вкладку з усіма вакансіями</h3>
+            <p>У вкладці "Вакансії" ви побачите усі вакансії зі статусами "активна" та "неактивна"</p>
+            <p>Ви можете легко змінити статус вакансії, натиснувши кнопку "Активувати/Деактивувати" у нижній частині вакансії</p>
+            <p>Також ви можете видалити вакансію, натиснувши кнопку "Видалити"</p>
+            <p>Ви можете фільтрувати вакансії, натиснувши кнопку у верхній частині та шукати вакансії за їх назвами</p>
         </section>
         <section class="admin-instruction-block">
-            <h3>Sended vacancies</h3>
-            <p>In the tab "Sended vacancies" you will see all vacancies that users send to you,they have state "sended" and will not show in vacancies tab and in the jobs page</p>
-            <p>By clicking button "Move to vacancies" you will change state of that vacancy to "disactive" and publish after</p>
-            <p>You can delete that vacancy by clicking button "Delete"</p>
+            <h3>Надіслані вакансії</h3>
+            <p>У вкладці "Надіслані вакансії" ви побачите усі вакансії, які користувачі надсилають вам, вони мають статус "надіслана" і не будуть показані у вкладці "Вакансії" та на сторінці роботошукача</p>
+            <p>Натиснувши кнопку "Перемістити до вакансій", ви зміните статус цієї вакансії на "неактивна" і зможете редагувати та опублікувати її</p>
+            <p>Ви можете видалити цю вакансію, натиснувши кнопку "Видалити"</p>
         </section>
         </section>
 </template>
